@@ -71,3 +71,100 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+## Solution diagram
+
+[A quick introduction to clean architecture](https://cdn-media-1.freecodecamp.org/images/oVVbTLR5gXHgP8Ehlz1qzRm5LLjX9kv2Zri6)
+
+![Solution diagram](clean-architecture.jpeg)
+
+
+### Structure
+```
+.
+├── src
+│   ├── app
+│   │   ├── controllers
+│   │   │   └── *.controller.ts
+│   │   ├── documentation
+│   │   │   └── *.body.ts
+│   │   ├── exception.filters
+│   │   │   └── *.filter.ts
+│   │   ├── modules
+│   │   │   └── *.module.ts
+│   │   └── *.application.ts
+│   ├── core
+│   |   ├── common
+│   |   │   ├── adapters
+│   |   │   │   └── usecase
+|   │   |   │       └── *.adapter.ts
+│   |   │   ├── codes
+│   |   │   │   └── *.code.ts
+│   |   │   ├── constants
+│   |   │   │   └── *.constants.*.ts
+│   |   │   ├── exceptions
+|   │   |   │   ├── api.response
+|   |   │   |   │   └── *.ts
+|   │   |   │   └── *.ts
+│   |   │   ├── types
+│   |   │   │   └── *.ts
+│   |   │   └── utils
+|   │   |       ├── class.validator
+|   |   │       │   └── *.ts
+│   |   │       └── *.ts
+|   |   ├── domain
+│   |   │   ├── dtos
+│   |   │   │   └── *.dto.ts
+│   |   │   ├── entities
+|   |   |   |   ├── types
+|   │   |   │   │   └── *.payload.ts
+│   |   │   │   └── *.entity.ts
+│   |   │   ├── ports
+|   |   |   |   ├── persistence
+|   │   |   │   │   └── *.port.ts
+│   |   │   │   └── usecase.ts
+|   │   |   │   │   └── *.port.ts
+│   |   │   └── usecase
+│   |   │       └── *.usecase.ts
+|   |   └── usecase
+|   |       └── *.usecase.ts
+│   ├── infrastructure
+│   │   ├── adapters
+|   │   │   ├── persistence
+|   │   │   │   └── mongoose
+|   |   |   |       ├── mappers
+|   |   │   |       │   └── *.mapper.ts
+│   |   │   |       ├── repositories
+|   |   │   |       │   └── *.adapter.ts
+|   │   |   │       └── schemas
+|   |   │   |           └── *.schema.ts
+|   │   │   └── usecase
+|   │   │       └── *.adapter.ts
+│   ├── main.ts
+├── test
+│   ├── common
+│   │   ├── env
+|   |   │   └── *.test
+|   │   └── jest-setup-file.ts
+│   ├── unit
+│   └── jest-e2e.json
+├── nest-cli.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.build.json
+└── tsconfig.json
+
+```
+
+### Description of the layers
+
+#### APP
+This layer is responsible for exposing the application services as resources implementing a REST design.
+
+#### CORE
+This layer contains all the business logic to save and retrieve endorsement, also exposes the data repository interfaces and the validations on these.
+
+### INFRASTRUCTURE
+It implements the technical capabilities required by the application and core layers. For example, the implementation of persistence to database
