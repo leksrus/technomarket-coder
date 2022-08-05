@@ -75,9 +75,9 @@ Nest is [MIT licensed](LICENSE).
 
 ## Solution diagram
 
-[A quick introduction to clean architecture](https://cdn-media-1.freecodecamp.org/images/oVVbTLR5gXHgP8Ehlz1qzRm5LLjX9kv2Zri6)
+[A quick introduction to clean architecture](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/)
 
-![Solution diagram](clean-architecture.jpeg)
+![Solution diagram](https://cdn-media-1.freecodecamp.org/images/oVVbTLR5gXHgP8Ehlz1qzRm5LLjX9kv2Zri6)
 
 
 ### Structure
@@ -103,6 +103,8 @@ Nest is [MIT licensed](LICENSE).
 │   |   │   │   └── *.code.ts
 │   |   │   ├── constants
 │   |   │   │   └── *.constants.*.ts
+│   |   │   ├── entities
+│   |   │   │   └── *.ts
 │   |   │   ├── exceptions
 |   │   |   │   ├── api.response
 |   |   │   |   │   └── *.ts
