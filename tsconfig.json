@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 18",
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "target": "ES2020",
+    "lib": ["es2020"],
+    "types": [
+      "reflect-metadata",
+      "jest",
+      "node"
+    ],
+    "rootDirs": [
+      "src",
+      "test"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowJs": false,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "incremental": true,
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@infrastructure/*": ["./src/infrastructure/*"],
+      "@application/*": ["./src/application/*"],
+      "@test/*": ["./test/*"]
+    }
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./test/**/*.ts"
+  ]
+}

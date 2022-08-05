@@ -1,0 +1,46 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "verbose": true,
+  "testEnvironment": "node",
+  "testRegex": "test/unit/.*.spec.ts",
+  "coverageReporters": [
+    "json-summary",
+    "text",
+    "lcov",
+    "cobertura"
+  ],
+  "coverageDirectory": ".unit-test",
+  "setupFiles": ["./test/common/jest-setup-file.ts"],
+  "collectCoverageFrom": [
+    "src/**/*.ts"
+  ],
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@core/(.*)$": "<rootDir>/src/core/$1",
+    "@infrastructure/(.*)$": "<rootDir>/src/infrastructure/$1",
+    "@application/(.*)$": "<rootDir>/src/application/$1",
+    "@test/(.*)$": "<rootDir>/test/$1"
+  },
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/src/application/",
+    "<rootDir>/src/infrastructure/adapters/external",
+    "<rootDir>/src/infrastructure/adapters/cache",
+    "<rootDir>/src/infrastructure/adapters/persistence/typeorm/entities",
+    "<rootDir>/src/infrastructure/adapters/persistence/typeorm/repository",
+    "<rootDir>/src/infrastructure/adapters/persistence/typeorm/sql-queries",
+    "<rootDir>/src/infrastructure/adapters/message-broker/redis-message-broker.adapter",
+    "main.ts",
+    "auth.provider.adapter.ts",
+    "typeorm.connections.name.ts"
+  ],
+  "reporters": [
+    "default"
+  ]
+}
