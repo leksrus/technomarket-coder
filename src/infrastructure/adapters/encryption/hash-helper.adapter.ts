@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class HashHelperAdapter implements HashHelperPort {
   private readonly _salt: number;
+
   public constructor(private readonly _configService: ConfigService) {
     this._salt = parseInt(this._configService.get<string>('SALT'));
   }

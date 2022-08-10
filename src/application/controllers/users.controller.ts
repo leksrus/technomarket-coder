@@ -4,7 +4,7 @@ import { UserDto } from "@core/dtos/user.dto";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { UserHttpBody } from "@application/documentation/user.http.body";
 import { CreateUserAdapter } from "@infrastructure/adapters/usecases/user/create-user.adapter";
-import { parse } from 'path';
+import { parse, extname } from 'path';
 import { createUserUseCasePort } from "@core/common/constants/di-constants-tokens";
 import { CreateUserUseCasePort } from "@core/domain/usecases/create-user.usecase.port";
 
@@ -30,6 +30,7 @@ export class UsersController {
       phone: payload.phone,
       avatarFile: {
         name: parse(file.originalname).name,
+        extension: extname(file.originalname),
         data: file.buffer
       }
     })
