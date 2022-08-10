@@ -25,4 +25,9 @@ export type ClassValidationErrors = {
   message: Array<string>;
 };
 
+export type ExceptionError = {
+  title: string;
+  status: number;
+  instance?: Nullable<string>;
+};
 
