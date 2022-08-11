@@ -103,8 +103,6 @@ Nest is [MIT licensed](LICENSE).
 │   |   │   │   └── *.code.ts
 │   |   │   ├── constants
 │   |   │   │   └── *.constants.*.ts
-│   |   │   ├── entities
-│   |   │   │   └── *.ts
 │   |   │   ├── exceptions
 |   │   |   │   ├── api.response
 |   |   │   |   │   └── *.ts
@@ -116,23 +114,37 @@ Nest is [MIT licensed](LICENSE).
 |   |   │       │   └── *.ts
 │   |   │       └── *.ts
 |   |   ├── domain
-│   |   │   ├── dtos
-│   |   │   │   └── *.dto.ts
 │   |   │   ├── entities
 |   |   |   |   ├── types
 |   │   |   │   │   └── *.payload.ts
 │   |   │   │   └── *.entity.ts
 │   |   │   ├── ports
+|   |   |   |   ├── auth
+|   │   |   │   |   └── *.port.ts   
+|   |   |   |   ├── encryption
+|   │   |   │   │   └── *.port.ts
+|   |   |   |   ├── external
+|   │   |   │   │   └── *.port.ts
 |   |   |   |   ├── persistence
 |   │   |   │   │   └── *.port.ts
 │   |   │   │   └── usecase.ts
+|   |   |   |   |   ├── user
+|   │   |   │   │   │   └── *.port.ts
 |   │   |   │   │   └── *.port.ts
 │   |   │   └── usecase
 │   |   │       └── *.usecase.ts
-|   |   └── usecase
+|   |   ├── dtos
+|   |   |   └── *.dto.ts
+|   |   └── services
 |   |       └── *.usecase.ts
 │   ├── infrastructure
 │   │   ├── adapters
+│   |   │   ├── auth
+│   |   │   │   └── *.adapter.ts
+│   |   │   ├── encryption
+│   |   │   │   └── *.adapter.ts
+│   |   │   ├── external
+│   |   │   │   └── *.adapter.ts
 |   │   │   ├── persistence
 |   │   │   │   └── mongoose
 |   |   |   |       ├── mappers
@@ -142,7 +154,8 @@ Nest is [MIT licensed](LICENSE).
 |   │   |   │       └── schemas
 |   |   │   |           └── *.schema.ts
 |   │   │   └── usecase
-|   │   │       └── *.adapter.ts
+|   │   │       └── user
+|   │   │           └── *.adapter.ts
 │   ├── main.ts
 ├── test
 │   ├── common
