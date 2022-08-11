@@ -33,6 +33,11 @@ export class StatusCode {
     message: 'Internal server error',
   };
 
+  public static CONFLICT_ERROR: CodeDescription = {
+    code: HttpStatus.CONFLICT,
+    message: 'Conflict.',
+  };
+
   public static USE_CASE_PORT_VALIDATION_ERROR: CodeDescription = {
     code: 1000,
     message: 'Use-case port validation error.',
@@ -41,6 +46,11 @@ export class StatusCode {
   public static FIRESTORE_FILE_UPLOAD_ERROR: CodeDescription = {
     code: 1001,
     message: 'Upload file error',
+  };
+
+  public static DUPLICATE_MAIL_ERROR: CodeDescription = {
+    code: 1002,
+    message: 'Email already exists',
   };
 
 }
