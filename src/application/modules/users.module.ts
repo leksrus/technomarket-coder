@@ -17,6 +17,7 @@ import { JwtModule } from "@nestjs/jwt";
 import { jwtConstants } from "@core/common/constants/jwt.constants";
 import { AuthenticateUserUseCase } from "@core/services/authenticate-user.usecase";
 import { JwtAdapter } from "@infrastructure/adapters/auth/jwt.adapter";
+import { JwtStrategy } from "@application/auth/jwt.strategy";
 
 @Module({
   imports: [
@@ -54,6 +55,7 @@ import { JwtAdapter } from "@infrastructure/adapters/auth/jwt.adapter";
       provide: jwtPort,
       useClass: JwtAdapter,
     },
+    JwtStrategy
   ],
 })
 export class UsersModule {}

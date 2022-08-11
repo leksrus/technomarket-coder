@@ -2,11 +2,13 @@ import { ApiTags } from '@nestjs/swagger';
 import {
   Body,
   Controller,
+  Get,
   HttpCode,
   HttpStatus,
   Inject,
   Post,
   UploadedFile,
+  UseGuards,
   UseInterceptors
 } from "@nestjs/common";
 import { UserDto } from '@core/dtos/user.dto';
@@ -20,6 +22,7 @@ import { AuthHttpBody } from '@application/documentation/auth.http.body';
 import { AuthenticateAdapter } from '@infrastructure/adapters/usecases/user/authenticate.adapter';
 import { AuthenticateUserUseCasePort } from '@core/domain/usecases/authenticate-user.usecase.port';
 import { AuthDto } from '@core/dtos/auth.dto';
+import { JwtAuthGuard } from "@application/auth/jwt-auth.guard";
 
 @ApiTags('Users Controller')
 @Controller('/users')
@@ -61,5 +64,11 @@ export class UsersController {
     });
 
     return this._authenticateUserUseCasePort.execute(adapter);
+  }
+
+  @Get('/test')
+  @UseGuards(JwtAuthGuard)
+  public async test(): Promise<void> {
+    return;
   }
 }
