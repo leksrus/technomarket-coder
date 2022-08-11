@@ -1,12 +1,12 @@
 import { UseCaseValidatableAdapter } from "@core/common/adapters/usecase/usecase.validatable.adapter";
 import { AuthenticatePort } from "@core/domain/ports/usecases/user/authenticate.port";
 import { Exclude, Expose, plainToClass } from "class-transformer";
-import { IsNotEmpty } from "class-validator";
+import { IsEmail, IsNotEmpty } from "class-validator";
 
 @Exclude()
 export class AuthenticateAdapter extends UseCaseValidatableAdapter implements AuthenticatePort{
   @Expose()
-  @IsNotEmpty()
+  @IsEmail()
   public email: string;
 
   @Expose()

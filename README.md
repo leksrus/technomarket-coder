@@ -170,6 +170,7 @@ Nest is [MIT licensed](LICENSE).
 ├── README.md
 ├── tsconfig.build.json
 └── tsconfig.json
+└── tech-market-firebase-adminsdk.json
 
 ```
 
