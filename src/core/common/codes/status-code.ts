@@ -33,38 +33,28 @@ export class StatusCode {
     message: 'Internal server error',
   };
 
+  public static CONFLICT_ERROR: CodeDescription = {
+    code: HttpStatus.CONFLICT,
+    message: 'Conflict.',
+  };
+
   public static USE_CASE_PORT_VALIDATION_ERROR: CodeDescription = {
     code: 1000,
     message: 'Use-case port validation error.',
   };
 
-  public static ENTITY_ENGAGE_CREATE_ERROR: CodeDescription = {
+  public static FIRESTORE_FILE_UPLOAD_ERROR: CodeDescription = {
     code: 1001,
-    message: 'Entity creation error. There was a problem saving entity en Engage',
+    message: 'Upload file error',
   };
 
-  public static ENUM_VALUE_NOT_EXIST_ERROR: CodeDescription = {
+  public static DUPLICATE_MAIL_ERROR: CodeDescription = {
     code: 1002,
-    message: 'Enum mapping error.',
+    message: 'Email already exists',
   };
 
-  public static PRELIMINARY_COMMUNICATION_VALIDATION_ERROR: CodeDescription = {
+  public static USER_OR_PASSWORD_ERROR: CodeDescription = {
     code: 1003,
-    message: 'Preliminary communication validation error. Preliminary communication is not valid for generate communication',
-  };
-
-  public static COMMUNICATION_VALIDATION_ERROR: CodeDescription = {
-    code: 1004,
-    message: 'Communication validation error. Communication is not valid because of miss zip code o valid email',
-  };
-
-  public static MAPPER_VALIDATION_ERROR: CodeDescription = {
-    code: 1005,
-    message: 'Mapper validation error.',
-  };
-
-  public static CERTIFICATES_VALIDATION_ERROR: CodeDescription = {
-    code: 1006,
-    message: 'Certificates cannot be empty.',
+    message: 'Incorrect user or password.',
   };
 }

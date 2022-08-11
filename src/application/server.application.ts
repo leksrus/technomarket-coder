@@ -7,6 +7,7 @@ import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
 export class ServerApplication {
   public async run(): Promise<void> {
     const app: NestExpressApplication = await NestFactory.create<NestExpressApplication>(RootModule);
+    app.setGlobalPrefix('/api');
     const configService: ConfigService = app.get(ConfigService);
     const port: string = configService.get<string>('PORT');
 
