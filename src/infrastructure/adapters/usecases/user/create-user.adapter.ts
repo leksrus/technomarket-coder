@@ -1,6 +1,6 @@
 import { UseCaseValidatableAdapter } from '@core/common/adapters/usecase/usecase.validatable.adapter';
 import { FileAdapter } from '@infrastructure/adapters/usecases/user/file.adapter';
-import { IsDateString, IsDefined, IsNotEmpty, ValidateNested } from 'class-validator';
+import { IsDateString, IsDefined, IsEmail, IsNotEmpty, ValidateNested } from "class-validator";
 import { Exclude, Expose, plainToClass, Type } from 'class-transformer';
 import { CreateUserPort } from "@core/domain/ports/usecases/user/create-user.port";
 
@@ -21,7 +21,7 @@ export class CreateUserAdapter extends UseCaseValidatableAdapter implements Crea
   public birthDate: string;
 
   @Expose()
-  @IsNotEmpty()
+  @IsEmail()
   public email: string;
 
   @Expose()

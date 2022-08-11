@@ -5,3 +5,7 @@ export const createUserUseCasePort: symbol = Symbol('CreateUserUseCasePort');
 export const hashHelperPort: symbol = Symbol('HashHelperPort');
 
 export const fireStoragePort: symbol = Symbol('FireStoragePort');
+
+export const jwtPort: symbol = Symbol('JwtPort');
+
+export const authenticateUserUseCasePort: symbol = Symbol('AuthenticateUserUseCasePort');

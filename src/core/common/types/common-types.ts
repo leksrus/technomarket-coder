@@ -31,3 +31,8 @@ export type ExceptionError = {
   instance?: Nullable<string>;
 };
 
+export type JwtPayload = {
+  username: string;
+  sub: string;
+}
+

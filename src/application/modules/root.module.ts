@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { CustomExceptionFilter } from '@application/exception.filters/custom.exception.filter';
-import { APP_FILTER } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD } from "@nestjs/core";
 import { UsersModule } from "@application/modules/users.module";
 import { MongooseModule } from "@nestjs/mongoose";
+import { JwtAuthGuard } from "@application/auth/jwt-auth.guard";
 
 @Module({
   imports: [
@@ -23,6 +24,10 @@ import { MongooseModule } from "@nestjs/mongoose";
     {
       provide: APP_FILTER,
       useClass: CustomExceptionFilter,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
     },
   ],
 })

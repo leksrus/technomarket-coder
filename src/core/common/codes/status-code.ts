@@ -53,4 +53,8 @@ export class StatusCode {
     message: 'Email already exists',
   };
 
+  public static USER_OR_PASSWORD_ERROR: CodeDescription = {
+    code: 1003,
+    message: 'Incorrect user or password.',
+  };
 }
