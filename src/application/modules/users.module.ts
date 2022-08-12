@@ -4,7 +4,7 @@ import {
   authenticateUserUseCasePort,
   createUserUseCasePort,
   fireStoragePort,
-  hashHelperPort, jwtPort,
+  hashHelperPort, jwtPort, mailSenderPort,
   userRepositoryPort
 } from "@core/common/constants/di-constants-tokens";
 import { UserRepositoryAdapter } from '@infrastructure/adapters/persistence/mogoose/repository/user.repository.adapter';
@@ -18,6 +18,7 @@ import { jwtConstants } from "@core/common/constants/jwt.constants";
 import { AuthenticateUserUseCase } from "@core/services/authenticate-user.usecase";
 import { JwtAdapter } from "@infrastructure/adapters/auth/jwt.adapter";
 import { JwtStrategy } from "@application/auth/jwt.strategy";
+import { MailSenderAdapter } from "@infrastructure/adapters/mailer/mail-sender.adapter";
 
 @Module({
   imports: [
@@ -54,6 +55,10 @@ import { JwtStrategy } from "@application/auth/jwt.strategy";
     {
       provide: jwtPort,
       useClass: JwtAdapter,
+    },
+    {
+      provide: mailSenderPort,
+      useClass: MailSenderAdapter,
     },
     JwtStrategy
   ],

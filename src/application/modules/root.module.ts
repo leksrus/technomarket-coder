@@ -4,6 +4,7 @@ import { CustomExceptionFilter } from '@application/exception.filters/custom.exc
 import { APP_FILTER } from '@nestjs/core';
 import { UsersModule } from '@application/modules/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ProductModule } from "@application/modules/product.module";
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       inject: [ConfigService],
     }),
     UsersModule,
+    ProductModule
   ],
   controllers: [],
   providers: [

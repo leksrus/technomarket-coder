@@ -60,7 +60,7 @@ export class User extends BaseEntity{
     return this._avatarUrl;
   }
 
-  public get createdAt(): Date {
+  public get createdAt(): Nullable<Date> {
     return this._createdAt;
   }
 
