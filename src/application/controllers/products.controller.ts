@@ -1,13 +1,15 @@
 import { ApiTags } from '@nestjs/swagger';
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, UseGuards } from "@nestjs/common";
 import { ProductHttpBody } from '@application/documentation/product.http.body';
 import { CreateProductAdapter } from '@infrastructure/adapters/usecases/product/create-product.adapter';
 import { ProductDto } from '@core/dtos/product.dto';
 import { createProductUseCasePort } from '@core/common/constants/di-constants-tokens';
 import { CreateProductUseCasePort } from '@core/domain/usecases/create-product.usecase.port';
+import { JwtAuthGuard } from "@application/auth/jwt-auth.guard";
 
 @ApiTags('Users Controller')
 @Controller('/products')
+@UseGuards(JwtAuthGuard)
 export class ProductsController {
   public constructor(
     @Inject(createProductUseCasePort)
