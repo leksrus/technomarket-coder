@@ -65,10 +65,4 @@ export class UsersController {
 
     return this._authenticateUserUseCasePort.execute(adapter);
   }
-
-  @Get('/test')
-  @UseGuards(JwtAuthGuard)
-  public async test(): Promise<void> {
-    return;
-  }
 }
