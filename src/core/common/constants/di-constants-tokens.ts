@@ -14,4 +14,12 @@ export const mailSenderPort: symbol = Symbol('MailSenderPort');
 
 export const createProductUseCasePort: symbol = Symbol('CreateProductUseCasePort');
 
+export const getProductsUseCasePort: symbol = Symbol('GetProductsUseCase');
+
+export const getProductUseCasePort: symbol = Symbol('GetProductUseCasePort');
+
+export const updateProductUseCasePort: symbol = Symbol('UpdateProductUseCasePort');
+
+export const removeProductUseCasePort: symbol = Symbol('RemoveProductUseCasePort');
+
 export const productRepositoryPort: symbol = Symbol('ProductRepositoryPort');
