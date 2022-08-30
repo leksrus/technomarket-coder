@@ -1,7 +1,6 @@
 import { BaseEntity } from '@core/domain/entities/base.entity';
 import { ProductType } from '@core/domain/entities/types/product.type';
 import { Nullable } from '@core/common/types/common-types';
-import { UpdateProductPort } from "@core/domain/ports/usecases/product/update-product.port";
 
 export class Product extends BaseEntity {
   private _name: string;
@@ -10,7 +9,7 @@ export class Product extends BaseEntity {
   private _category: string;
   private _stock: number;
   private _thumbnails: string;
-  private readonly _createdAt: Nullable<Date>;
+  private readonly _createdAt: Date;
   private _editedAt: Nullable<Date>;
 
   public constructor(payload: ProductType) {
@@ -21,6 +20,7 @@ export class Product extends BaseEntity {
     this._category = payload.category;
     this._stock = payload.stock;
     this._thumbnails = payload.thumbnails;
+    this._editedAt = payload.editedAt || null;
     this._createdAt = payload.createdAt || new Date();
   }
 
@@ -48,7 +48,7 @@ export class Product extends BaseEntity {
     return this._thumbnails;
   }
 
-  public get createdAt(): Nullable<Date> {
+  public get createdAt(): Date {
     return this._createdAt;
   }
 
@@ -60,7 +60,7 @@ export class Product extends BaseEntity {
     return new Product(payload);
   }
 
-  public edit(payload: UpdateProductPort): void {
+  public edit(payload: ProductType): void {
     this._name = payload.name;
     this._description = payload.description;
     this._price = payload.price;

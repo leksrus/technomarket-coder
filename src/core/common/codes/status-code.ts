@@ -57,4 +57,9 @@ export class StatusCode {
     code: 1003,
     message: 'Incorrect user or password.',
   };
+
+  public static ENUM_VALUE_NOT_EXIST_ERROR: CodeDescription = {
+    code: 1004,
+    message: 'Enum mapping error.',
+  };
 }

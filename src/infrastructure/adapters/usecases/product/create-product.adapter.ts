@@ -37,5 +37,4 @@ export class CreateProductAdapter extends UseCaseValidatableAdapter implements C
 
     return adapter;
   }
-
 }

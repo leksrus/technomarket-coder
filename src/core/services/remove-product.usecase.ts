@@ -19,9 +19,9 @@ export class RemoveProductUseCase implements RemoveProductUseCasePort {
     const product: Nullable<Product> = await this._productRepositoryPort.findById(payload.id);
 
     if (product) {
-      const editedProduct: Nullable<Product> = await this._productRepositoryPort.remove(product);
+      const removedProduct: Nullable<Product> = await this._productRepositoryPort.remove(product);
 
-      return ProductDto.toProductDto(editedProduct);
+      return ProductDto.toProductDto(removedProduct);
     }
 
     throw Exception.new({ code: StatusCode.NOT_FOUND_DATA, data: undefined }, RemoveProductUseCase.name);

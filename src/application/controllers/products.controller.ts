@@ -21,7 +21,7 @@ import { UpdateProductAdapter } from '@infrastructure/adapters/usecases/product/
 import { RemoveProductUseCasePort } from '@core/domain/ports/usecases/user/remove-product.usecase.port';
 import { RemoveProductAdapter } from '@infrastructure/adapters/usecases/product/remove-product.adapter';
 
-@ApiTags('Users Controller')
+@ApiTags('Products Controller')
 @Controller('/products')
 @UseGuards(JwtAuthGuard)
 export class ProductsController {

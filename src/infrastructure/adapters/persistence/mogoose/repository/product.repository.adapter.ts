@@ -14,9 +14,9 @@ export class ProductRepositoryAdapter implements ProductRepositoryPort {
   public async add(product: Product): Promise<Nullable<Product>> {
     let domainEntity: Nullable<Product> = null;
 
-    const newCommunicationParameterModel: ProductSchema = new this._productModel(ProductMapper.fromDomainToNewModel(product));
+    const newProductModel: ProductSchema = new this._productModel(ProductMapper.fromDomainToNewModel(product));
 
-    const response: Nullable<ProductSchema> = await newCommunicationParameterModel.save();
+    const response: Nullable<ProductSchema> = await newProductModel.save();
 
     if (response) domainEntity = ProductMapper.toDomainEntity(response);
 
@@ -36,13 +36,13 @@ export class ProductRepositoryAdapter implements ProductRepositoryPort {
   public async update(product: Product): Promise<Nullable<Product>> {
     let domainEntity: Nullable<Product> = null;
 
-    const newCommunicationParameterModel: Nullable<ProductSchema> = await this._productModel
+    const newProductModel: Nullable<ProductSchema> = await this._productModel
       .findByIdAndUpdate(product.id, ProductMapper.fromDomainToNewModel(product), {
         new: true,
       })
       .exec();
 
-    if (newCommunicationParameterModel) domainEntity = ProductMapper.toDomainEntity(newCommunicationParameterModel);
+    if (newProductModel) domainEntity = ProductMapper.toDomainEntity(newProductModel);
 
     return domainEntity;
   }

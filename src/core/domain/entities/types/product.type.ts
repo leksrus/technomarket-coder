@@ -10,5 +10,5 @@ export type ProductType = {
   stock: number;
   thumbnails: string;
   editedAt?: Nullable<Date>;
-  createdAt?: Date;
+  createdAt?: Nullable<Date>;
 }

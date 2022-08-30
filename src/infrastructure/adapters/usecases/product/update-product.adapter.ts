@@ -8,23 +8,29 @@ export class UpdateProductAdapter extends UseCaseValidatableAdapter implements U
   @Expose()
   @IsNotEmpty()
   public category: string;
+
   @Expose()
   @IsNotEmpty()
   public description: string;
+
   @Expose()
   @IsNotEmpty()
   public id: string;
+
   @Expose()
   @IsNotEmpty()
   public name: string;
+
   @Expose()
   @IsNumber()
   @IsPositive()
   public price: number;
+
   @Expose()
   @IsNumber()
   @IsPositive()
   public stock: number;
+
   @Expose()
   @IsNotEmpty()
   public thumbnails: string;
