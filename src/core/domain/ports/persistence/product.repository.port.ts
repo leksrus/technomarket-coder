@@ -3,6 +3,8 @@ import { Nullable } from "@core/common/types/common-types";
 
 
 export interface ProductRepositoryPort {
+  findAll(): Promise<Nullable<Array<Product>>>;
+
   findById(productId: string): Promise<Nullable<Product>>;
 
   findByCategory(category: string): Promise<Nullable<Array<Product>>>;

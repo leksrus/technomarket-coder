@@ -24,6 +24,8 @@ export const getProductsUseCasePort: symbol = Symbol('GetProductsUseCase');
 
 export const getProductUseCasePort: symbol = Symbol('GetProductUseCasePort');
 
+export const getAllProductsUseCasePort: symbol = Symbol('GetAllProductsUseCasePort');
+
 export const updateProductUseCasePort: symbol = Symbol('UpdateProductUseCasePort');
 
 export const removeProductUseCasePort: symbol = Symbol('RemoveProductUseCasePort');

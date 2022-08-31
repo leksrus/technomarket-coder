@@ -5,6 +5,7 @@ import { CreateProductAdapter } from '@infrastructure/adapters/usecases/product/
 import { ProductDto } from '@core/dtos/product.dto';
 import {
   createProductUseCasePort,
+  getAllProductsUseCasePort,
   getProductsUseCasePort,
   getProductUseCasePort,
   removeProductUseCasePort,
@@ -20,6 +21,7 @@ import { UpdateProductUseCasePort } from '@core/domain/ports/usecases/user/updat
 import { UpdateProductAdapter } from '@infrastructure/adapters/usecases/product/update-product.adapter';
 import { RemoveProductUseCasePort } from '@core/domain/ports/usecases/user/remove-product.usecase.port';
 import { RemoveProductAdapter } from '@infrastructure/adapters/usecases/product/remove-product.adapter';
+import { GetAllProductsUseCasePort } from '@core/domain/usecases/get-all-products.usecase.port';
 
 @ApiTags('Products Controller')
 @Controller('/products')
@@ -28,6 +30,8 @@ export class ProductsController {
   public constructor(
     @Inject(createProductUseCasePort)
     private readonly _createProductUseCasePort: CreateProductUseCasePort,
+    @Inject(getAllProductsUseCasePort)
+    private readonly _getAllProductsUseCasePort: GetAllProductsUseCasePort,
     @Inject(getProductsUseCasePort)
     private readonly _getProductsUseCasePort: GetProductsUseCasePort,
     @Inject(getProductUseCasePort)
@@ -64,6 +68,12 @@ export class ProductsController {
     });
 
     return this._getProductsUseCasePort.execute(adapter);
+  }
+
+  @Get()
+  @ApiResponse({ status: HttpStatus.NOT_FOUND, description: 'Products not found' })
+  public async getAll(): Promise<Array<ProductDto>> {
+    return this._getAllProductsUseCasePort.execute();
   }
 
   @Get('/:id')

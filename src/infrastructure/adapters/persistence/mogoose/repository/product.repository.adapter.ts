@@ -70,4 +70,14 @@ export class ProductRepositoryAdapter implements ProductRepositoryPort {
 
     return domainEntity;
   }
+
+  public async findAll(): Promise<Nullable<Array<Product>>> {
+    let domainEntities: Nullable<Array<Product>> = null;
+
+    const mongoModel: Nullable<Array<ProductSchema>> = await this._productModel.find().exec();
+
+    if (mongoModel) domainEntities = ProductMapper.toDomainListEntities(mongoModel);
+
+    return domainEntities;
+  }
 }
