@@ -9,7 +9,7 @@ export class CartSchema extends Document {
   public email: string;
   @Prop({ required: true, type: String })
   public orderAddress: string;
-  @Prop({required: false, type: [itemSchema] })
+  @Prop({required: false, type: [itemSchema], default: null  })
   public items: Array<ItemSchema>;
   @Prop({ type: String, default: null })
   public editedAt: string;

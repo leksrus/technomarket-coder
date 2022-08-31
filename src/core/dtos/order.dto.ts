@@ -2,6 +2,7 @@ import { Exclude, Expose, plainToClass, Transform, Type } from 'class-transforme
 import { OrderStatus } from '@core/common/enums/order-status';
 import { Item } from '@core/domain/entities/item';
 import { Order } from '@core/domain/entities/order';
+import { ItemDto } from "@core/dtos/item.dto";
 
 @Exclude()
 export class OrderDto {
@@ -18,8 +19,8 @@ export class OrderDto {
   public email: string;
 
   @Expose()
-  @Type(() => Item)
-  public items: Array<Item>;
+  @Type(() => ItemDto)
+  public items: Array<ItemDto>;
 
   @Expose()
   @Type(() => Date)

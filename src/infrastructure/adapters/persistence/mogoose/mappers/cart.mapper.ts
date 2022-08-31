@@ -12,12 +12,12 @@ export class CartMapper {
       editedAt: new Date(cartModel.editedAt),
     });
 
-    cart.items = cartModel.items.map((x) =>
+    cart.items = cartModel.items?.map((x) =>
       Item.new({
         name: x.name,
         description: x.description,
         category: x.category,
-        price: parseInt(x.price),
+        price: parseFloat(x.price.replace(',', '.')),
         thumbnails: x.thumbnails,
         quantity: x.quantity,
       }),
@@ -30,7 +30,7 @@ export class CartMapper {
     return Object.assign({
       email: cart.email,
       orderAddress: cart.orderAddress,
-      items: cart.items.map((x) => this.fromDomainToNewModelItem(x)),
+      items: cart.items?.map((x) => this.fromDomainToNewModelItem(x)),
       createdAt: cart.createdAt,
       editedAt: cart.editedAt,
     });

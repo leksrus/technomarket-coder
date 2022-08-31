@@ -16,8 +16,7 @@ export class ProductDto {
   public name: string;
 
   @Expose()
-  @Type(() => Number)
-  public price: number;
+  public price: string;
 
   @Expose()
   @Type(() => Number)

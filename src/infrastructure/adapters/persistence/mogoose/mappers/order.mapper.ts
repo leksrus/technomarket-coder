@@ -10,7 +10,7 @@ export class OrderMapper {
         name: x.name,
         description: x.description,
         category: x.category,
-        price: parseInt(x.price),
+        price: parseFloat(x.price.replace(',', '.')),
         thumbnails: x.thumbnails,
         quantity: x.quantity,
       };

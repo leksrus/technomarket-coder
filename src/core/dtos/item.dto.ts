@@ -9,8 +9,7 @@ export class ItemDto {
   public description: string;
 
   @Expose()
-  @Type(() => Number)
-  public price: number;
+  public price: string;
 
   @Expose()
   public category: string;

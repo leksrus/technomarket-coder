@@ -55,7 +55,7 @@ export class ProductsController {
     return this._createProductUseCasePort.execute(adapter);
   }
 
-  @Get('/:category')
+  @Get('/:category/filter')
   @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: 'Search category incorrect' })
   @ApiResponse({ status: HttpStatus.NOT_FOUND, description: 'Product not found by category' })
   public async getFromCategory(@Param('category') category: string): Promise<Array<ProductDto>> {

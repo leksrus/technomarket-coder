@@ -1,6 +1,7 @@
 import { Exclude, Expose, plainToClass, Transform, Type } from 'class-transformer';
 import { Item } from '@core/domain/entities/item';
 import { Cart } from '@core/domain/entities/cart';
+import { ItemDto } from "@core/dtos/item.dto";
 
 @Exclude()
 export class CartDto {
@@ -14,8 +15,8 @@ export class CartDto {
   public orderAddress: string;
 
   @Expose()
-  @Type(() => Item)
-  public items: Array<Item>;
+  @Type(() => ItemDto)
+  public items: Array<ItemDto>;
 
   @Expose()
   @Type(() => Date)

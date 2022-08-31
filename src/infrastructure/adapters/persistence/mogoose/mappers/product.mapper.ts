@@ -10,7 +10,7 @@ export class ProductMapper {
       description: productModel.description,
       category: productModel.category,
       stock: productModel.stock,
-      price: parseInt(productModel.price),
+      price: parseFloat(productModel.price.replace(',', '.')),
       thumbnails: productModel.thumbnails,
       createdAt: new Date(productModel.createdAt),
       editedAt: new Date(productModel.editedAt)
