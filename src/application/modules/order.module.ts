@@ -5,10 +5,11 @@ import { orderSchema, OrderSchema } from '@infrastructure/adapters/persistence/m
 import { OrderRepositoryAdapter } from '@infrastructure/adapters/persistence/mogoose/repository/order.repository.adapter';
 import { CreateOrderUseCase } from '@core/services/create-order.usecase';
 import { GetOrdersUseCase } from '@core/services/get-orders.usecase';
-import { OrdersController } from "@application/controllers/orders.controller";
+import { OrdersController } from '@application/controllers/orders.controller';
+import { UsersModule } from '@application/modules/users.module';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: OrderSchema.name, schema: orderSchema }])],
+  imports: [MongooseModule.forFeature([{ name: OrderSchema.name, schema: orderSchema }]), UsersModule],
   controllers: [OrdersController],
   providers: [
     {
