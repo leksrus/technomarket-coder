@@ -72,23 +72,27 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-
 ## Solution diagram
 
 [A quick introduction to clean architecture](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/)
 
 ![Solution diagram](https://cdn-media-1.freecodecamp.org/images/oVVbTLR5gXHgP8Ehlz1qzRm5LLjX9kv2Zri6)
 
-
 ### Structure
+
 ```
 .
 ├── src
 │   ├── app
+│   │   ├── auth
+│   │   │   └── *.strategy.ts
+│   │   │   └── *.guard.ts
 │   │   ├── controllers
 │   │   │   └── *.controller.ts
 │   │   ├── documentation
 │   │   │   └── *.body.ts
+│   │   ├── events
+│   │   │   └── *.gateway.ts
 │   │   ├── exception.filters
 │   │   │   └── *.filter.ts
 │   │   ├── modules
@@ -103,12 +107,17 @@ Nest is [MIT licensed](LICENSE).
 │   |   │   │   └── *.code.ts
 │   |   │   ├── constants
 │   |   │   │   └── *.constants.*.ts
+│   |   │   ├── enums
+│   |   │   │   └── order-status.*.ts
+│   |   │   │   └── user-types.*.ts
 │   |   │   ├── exceptions
 |   │   |   │   ├── api.response
 |   |   │   |   │   └── *.ts
 |   │   |   │   └── *.ts
 │   |   │   ├── types
-│   |   │   │   └── *.ts
+│   |   │   │   └── *types.ts
+│   |   │   ├── usecase
+│   |   │   │   └── base.usecase.ts
 │   |   │   └── utils
 |   │   |       ├── class.validator
 |   |   │       │   └── *.ts
@@ -120,10 +129,12 @@ Nest is [MIT licensed](LICENSE).
 │   |   │   │   └── *.entity.ts
 │   |   │   ├── ports
 |   |   |   |   ├── auth
-|   │   |   │   |   └── *.port.ts   
+|   │   |   │   |   └── *.port.ts
 |   |   |   |   ├── encryption
 |   │   |   │   │   └── *.port.ts
 |   |   |   |   ├── external
+|   │   |   │   │   └── *.port.ts
+|   |   |   |   ├── mailer
 |   │   |   │   │   └── *.port.ts
 |   |   |   |   ├── persistence
 |   │   |   │   │   └── *.port.ts
@@ -145,6 +156,8 @@ Nest is [MIT licensed](LICENSE).
 │   |   │   │   └── *.adapter.ts
 │   |   │   ├── external
 │   |   │   │   └── *.adapter.ts
+│   |   │   ├── mailer
+│   |   │   │   └── *.adapter.ts
 |   │   │   ├── persistence
 |   │   │   │   └── mongoose
 |   |   |   |       ├── mappers
@@ -154,6 +167,16 @@ Nest is [MIT licensed](LICENSE).
 |   │   |   │       └── schemas
 |   |   │   |           └── *.schema.ts
 |   │   │   └── usecase
+|   │   │       └── cart
+|   │   │           └── *.adapter.ts
+|   │   │       └── item
+|   │   │           └── *.adapter.ts
+|   │   │       └── message
+|   │   │           └── *.adapter.ts
+|   │   │       └── order
+|   │   │           └── *.adapter.ts
+|   │   │       └── product
+|   │   │           └── *.adapter.ts
 |   │   │       └── user
 |   │   │           └── *.adapter.ts
 │   ├── main.ts
@@ -177,10 +200,13 @@ Nest is [MIT licensed](LICENSE).
 ### Description of the layers
 
 #### APP
+
 This layer is responsible for exposing the application services as resources implementing a REST design.
 
 #### CORE
+
 This layer contains all the business logic to save and retrieve endorsement, also exposes the data repository interfaces and the validations on these.
 
 ### INFRASTRUCTURE
+
 It implements the technical capabilities required by the application and core layers. For example, the implementation of persistence to database
