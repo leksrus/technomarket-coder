@@ -11,6 +11,8 @@ import { AuthHttpBody } from '@application/documentation/auth.http.body';
 import { AuthenticateAdapter } from '@infrastructure/adapters/usecases/user/authenticate.adapter';
 import { AuthenticateUserUseCasePort } from '@core/domain/usecases/authenticate-user.usecase.port';
 import { AuthDto } from '@core/dtos/auth.dto';
+import { Express } from 'express';
+import { Multer } from 'multer';
 
 @ApiTags('Users Controller')
 @Controller('/users')
