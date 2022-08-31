@@ -1,16 +1,5 @@
 import { ApiTags } from '@nestjs/swagger';
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Inject,
-  Post,
-  UploadedFile,
-  UseGuards,
-  UseInterceptors
-} from "@nestjs/common";
+import { Body, Controller, HttpCode, HttpStatus, Inject, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { UserDto } from '@core/dtos/user.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UserHttpBody } from '@application/documentation/user.http.body';
@@ -22,7 +11,7 @@ import { AuthHttpBody } from '@application/documentation/auth.http.body';
 import { AuthenticateAdapter } from '@infrastructure/adapters/usecases/user/authenticate.adapter';
 import { AuthenticateUserUseCasePort } from '@core/domain/usecases/authenticate-user.usecase.port';
 import { AuthDto } from '@core/dtos/auth.dto';
-import { JwtAuthGuard } from "@application/auth/jwt-auth.guard";
+import { Multer } from 'multer';
 
 @ApiTags('Users Controller')
 @Controller('/users')
