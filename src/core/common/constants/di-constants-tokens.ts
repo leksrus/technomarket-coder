@@ -6,6 +6,8 @@ export const cartRepositoryPort: symbol = Symbol('CartRepositoryPort');
 
 export const orderRepositoryPort: symbol = Symbol('OrderRepositoryPort');
 
+export const messageRepositoryPort: symbol = Symbol('MessageRepositoryPort');
+
 export const createUserUseCasePort: symbol = Symbol('CreateUserUseCasePort');
 
 export const hashHelperPort: symbol = Symbol('HashHelperPort');
@@ -41,3 +43,7 @@ export const removeCartUseCasePort: symbol = Symbol('RemoveCartUseCasePort');
 export const createOrderUseCasePort: symbol = Symbol('CreateOrderUseCasePort');
 
 export const getOrdersUseCasePort: symbol = Symbol('GetOrdersUseCasePort');
+
+export const createMessageUseCasePort: symbol = Symbol('CreateMessageUseCasePort');
+
+export const getMessagesUseCasePort: symbol = Symbol('GetMessagesUseCasePort');

@@ -14,7 +14,7 @@ export class OrderSchema extends Document {
     enum: Object.values(OrderStatus),
     type: String,
     default: OrderStatus[OrderStatus.created],
-    set: (enableStatus: OrderStatus) => EnumMapper.getEnumAsString(OrderStatus, enableStatus),
+    set: (status: OrderStatus) => EnumMapper.getEnumAsString(OrderStatus, status),
   })
   public status: OrderStatus;
   @Prop({ required: true, type: String, lowercase: true })
