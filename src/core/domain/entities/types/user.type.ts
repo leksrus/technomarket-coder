@@ -12,5 +12,5 @@ export type UserType = {
   phone: string;
   avatarUrl: string;
   editedAt?: Nullable<Date>;
-  createdAt?: Date;
+  createdAt?: Nullable<Date>;
 }

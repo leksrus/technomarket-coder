@@ -21,7 +21,7 @@ export class UserSchema extends Document {
   public avatarUrl: string;
   @Prop({ type: String, default: null })
   public editedAt: string;
-  @Prop({ type: String, default: null })
+  @Prop({ type: String })
   public createdAt: string;
 }
 
